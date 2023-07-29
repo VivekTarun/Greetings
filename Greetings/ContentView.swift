@@ -3,7 +3,7 @@
 //  Greetings
 //
 //  Created by Vivek Tarun on 29/07/23.
-//
+// KEYWORD THAT I DON'T KNOW -> identifiable, @State
 
 import SwiftUI
 
@@ -37,7 +37,7 @@ struct ContentView: View {
 
 struct BackgroundView: View {
     var body: some View {
-        LinearGradient(colors: [.red, .yellow, .blue, .yellow], startPoint: .topLeading, endPoint: .bottomTrailing)
+        LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
             .opacity(0.2)
             .ignoresSafeArea()
     }
@@ -77,7 +77,14 @@ struct TitleView: View {
 
 struct TextView: View {
     let text: String
-    let color: Color
+    @State var color: Color
+    
+    let colors: [Color] = [.red, .green, .blue, .orange, .yellow, .purple,
+                           Color(red: 0.5, green: 0, blue: 0.5),
+                           Color(red: 0.5, green: 0.5, blue: 0.5),
+                           Color(red: 139/255, green: 207/255, blue: 240/255),
+                           Color(red: 255/255, green: 215/255, blue: 0)]
+    
     var body: some View {
         Text(text)
             .font(.title2)
@@ -86,6 +93,11 @@ struct TextView: View {
             .background(color.opacity(0.8))
             .cornerRadius(20.0)
             .shadow(color: color.opacity(0.4), radius: 5, x: 10, y: 10)
+            .onTapGesture {
+                let length = colors.count
+                let randomIndex = Int.random(in: 0..<length)
+                color = colors[randomIndex]
+            }
     }
 }
 
