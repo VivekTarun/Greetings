@@ -7,12 +7,44 @@
 
 import SwiftUI
 
-struct DataItemModel {
+struct DataItemModel: Identifiable {
+    let id = UUID()
     let text: String
     let color: Color
 }
 
 struct ContentView: View {
+    
+    var body: some View {
+        ZStack {
+            BackgroundView()
+            
+            VStack(alignment: .leading) {
+                
+                TitleView()
+                Spacer()
+                
+                MessageView()
+                Spacer()
+                Spacer()
+                
+            }
+        }
+        
+        
+    }
+}
+
+struct BackgroundView: View {
+    var body: some View {
+        LinearGradient(colors: [.red, .yellow, .blue, .yellow], startPoint: .topLeading, endPoint: .bottomTrailing)
+            .opacity(0.2)
+            .ignoresSafeArea()
+    }
+    
+}
+
+struct MessageView: View {
     
     let messages = [
         DataItemModel(text: "Hello tehre!", color: .green),
@@ -21,21 +53,25 @@ struct ContentView: View {
         DataItemModel(text: "start exploring?", color: .red),
         DataItemModel(text: "Boom", color: .purple)
     ]
+    
     var body: some View {
-        VStack(alignment: .leading) {
-            TextView(text: messages[0].text, color: messages[0].color)
-            TextView(text: messages[1].text, color: messages[1].color)
-            TextView(text: messages[2].text, color: messages[2].color)
-            TextView(text: messages[3].text, color: messages[3].color)
-            TextView(text: messages[4].text, color: messages[4].color)
-        }
-        
+        ForEach(messages, content: { dataItem in // how for each loop work in swift.
+            TextView(text: dataItem.text, color: dataItem.color)
+        })
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct TitleView: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0.0) {
+            Text("Greetings")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+            Text("Exploring ios 15 programming")
+                .font(.headline)
+                .fontWeight(.thin)
+        }
+        .padding()
     }
 }
 
@@ -52,3 +88,12 @@ struct TextView: View {
             .shadow(color: color.opacity(0.4), radius: 5, x: 10, y: 10)
     }
 }
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
+
+
+
