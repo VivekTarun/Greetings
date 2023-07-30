@@ -37,7 +37,7 @@ struct ContentView: View {
 
 struct BackgroundView: View {
     var body: some View {
-        LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+        LinearGradient(colors: [.purple, .blue, .purple, .blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
             .opacity(0.2)
             .ignoresSafeArea()
     }
@@ -46,12 +46,12 @@ struct BackgroundView: View {
 
 struct MessageView: View {
     
-    let messages = [
-        DataItemModel(text: "Hello tehre!", color: .green),
-        DataItemModel(text: "welcome to swift programming", color: .gray),
-        DataItemModel(text: "Are you ready to", color: .yellow),
-        DataItemModel(text: "start exploring?", color: .red),
-        DataItemModel(text: "Boom", color: .purple)
+    let messages = [ 
+        DataItemModel(text: "Hello tehre!", color: Color("Green")),
+        DataItemModel(text: "welcome to swift programming", color: Color("Purple")),
+        DataItemModel(text: "Are you ready to", color: Color("Red")),
+        DataItemModel(text: "start exploring?", color: Color("Yellow")),
+        DataItemModel(text: "Boom", color: Color("Gray"))
     ]
     
     var body: some View {
@@ -137,6 +137,8 @@ struct TextView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+        ContentView()
+            .preferredColorScheme(.dark)
     }
 }
 
