@@ -1,8 +1,3 @@
-//
-//  ContentView.swift
-//  Greetings
-//
-//  Created by Vivek Tarun on 29/07/23.
 // KEYWORD THAT I DON'T KNOW -> identifiable, @State
 
 import SwiftUI
@@ -11,7 +6,7 @@ import SwiftUI
 // This is the data model of the app.
 struct DataItemModel: Identifiable {
     let id = UUID()
-    let text: String
+    let text: LocalizedStringKey
     let color: Color
 }
 
@@ -52,11 +47,11 @@ struct BackgroundView: View {
 struct MessageView: View {
     
     let messages = [ 
-        DataItemModel(text: "Hello There!", color: Color("Green")),
-        DataItemModel(text: "welcome to swift programming", color: Color("Purple")),
-        DataItemModel(text: "Are you ready to", color: Color("Red")),
-        DataItemModel(text: "start exploring?", color: Color("Yellow")),
-        DataItemModel(text: "Boom", color: Color("Gray"))
+        DataItemModel(text: LocalizedStringKey("Hello There!"), color: Color("Green")),
+        DataItemModel(text: LocalizedStringKey("welcome to swift programming"), color: Color("Purple")),
+        DataItemModel(text: LocalizedStringKey("Are you ready to"), color: Color("Red")),
+        DataItemModel(text: LocalizedStringKey("start exploring?"), color: Color("Yellow")),
+        DataItemModel(text: LocalizedStringKey("Boom"), color: Color("Gray"))
     ]
     
     var body: some View {
@@ -75,17 +70,17 @@ struct TitleView: View {
     @State var isRotated: Bool = false
     @State var captionIndex: Int = 0
     
-    let caption: [String] = [
-        "Exploring ios 15 programming",
-        "Learning how to bake",
-        "Programming recipes",
-        "A quest for knowledge"
+    let caption: [LocalizedStringKey] = [
+        LocalizedStringKey("Exploring ios 15 programming"),
+        LocalizedStringKey("Learning how to bake"),
+        LocalizedStringKey("Programming recipes"),
+        LocalizedStringKey("A quest for knowledge")
     ]
     
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 0.0) {
-                Text("Greetings")
+                Text(LocalizedStringKey("Greetings"))
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 Text(caption[captionIndex])
@@ -117,7 +112,7 @@ struct TitleView: View {
 
 // This is the textView
 struct TextView: View {
-    let text: String
+    let text: LocalizedStringKey
     @State var color: Color
     
     let colors: [Color] = [.red, .green, .blue, .orange, .yellow, .purple,
