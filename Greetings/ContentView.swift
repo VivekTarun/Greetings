@@ -7,12 +7,15 @@
 
 import SwiftUI
 
+
+// This is the data model of the app.
 struct DataItemModel: Identifiable {
     let id = UUID()
     let text: String
     let color: Color
 }
 
+// This is the main view of the greeting
 struct ContentView: View {
     
     var body: some View {
@@ -35,6 +38,7 @@ struct ContentView: View {
     }
 }
 
+// This is a background view
 struct BackgroundView: View {
     var body: some View {
         LinearGradient(colors: [.purple, .blue, .purple, .blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -44,10 +48,11 @@ struct BackgroundView: View {
     
 }
 
+// This is a list of message view
 struct MessageView: View {
     
     let messages = [ 
-        DataItemModel(text: "Hello tehre!", color: Color("Green")),
+        DataItemModel(text: "Hello There!", color: Color("Green")),
         DataItemModel(text: "welcome to swift programming", color: Color("Purple")),
         DataItemModel(text: "Are you ready to", color: Color("Red")),
         DataItemModel(text: "start exploring?", color: Color("Yellow")),
@@ -64,6 +69,7 @@ struct MessageView: View {
     }
 }
 
+// This is a title view
 struct TitleView: View {
     
     @State var isRotated: Bool = false
@@ -108,6 +114,8 @@ struct TitleView: View {
     }
 }
 
+
+// This is the textView
 struct TextView: View {
     let text: String
     @State var color: Color
@@ -123,7 +131,7 @@ struct TextView: View {
             .font(.title2)
             .fontWeight(.semibold)
             .padding()
-            .background(color.opacity(0.8))
+            .background(color.opacity(0.7))
             .cornerRadius(20.0)
             .shadow(color: color.opacity(0.4), radius: 5, x: 10, y: 10)
             .onTapGesture {
@@ -134,6 +142,8 @@ struct TextView: View {
     }
 }
 
+
+// This is to show the preview to canvas
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
