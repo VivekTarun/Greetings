@@ -24,6 +24,7 @@
 		F97314902A769A9F009DFA44 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		F97314992A76AF00009DFA44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F973149B2A76AF1B009DFA44 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F973149C2A76B2C6009DFA44 /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +118,7 @@
 				en,
 				Base,
 				es,
+				hi,
 			);
 			mainGroup = F97314762A7585E8009DFA44;
 			productRefGroup = F97314802A7585E8009DFA44 /* Products */;
@@ -160,6 +162,7 @@
 			children = (
 				F97314992A76AF00009DFA44 /* en */,
 				F973149B2A76AF1B009DFA44 /* es */,
+				F973149C2A76B2C6009DFA44 /* hi */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
