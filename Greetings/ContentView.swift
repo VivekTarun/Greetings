@@ -55,21 +55,43 @@ struct MessageView: View {
     ]
     
     var body: some View {
-        ForEach(messages, content: { dataItem in // how for each loop work in swift.
-            TextView(text: dataItem.text, color: dataItem.color)
-        })
+        VStack(alignment: .leading) {
+            ForEach(messages, content: { dataItem in // how for each loop work in swift.
+                TextView(text: dataItem.text, color: dataItem.color)
+            })
+        }
+        .padding()
     }
 }
 
 struct TitleView: View {
+    
+    @State var isRotated: Bool = false
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 0.0) {
-            Text("Greetings")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            Text("Exploring ios 15 programming")
-                .font(.headline)
-                .fontWeight(.thin)
+        HStack {
+            VStack(alignment: .leading, spacing: 0.0) {
+                Text("Greetings")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                Text("Exploring ios 15 programming")
+                    .font(.headline)
+                    .fontWeight(.thin)
+            }
+            .padding()
+            Spacer()
+            Circle()
+                .strokeBorder(AngularGradient(gradient: Gradient(colors: [.blue, .green, .red]),
+                                              center: .center,
+                                              angle: .zero),
+                              lineWidth: 15)
+                .rotationEffect(isRotated ? .zero : .degrees(360))
+                .onTapGesture {
+                    withAnimation(Animation.spring()) {
+                        isRotated.toggle()
+                    }
+                }
+                .frame(maxWidth: 70, maxHeight: 70)
         }
         .padding()
     }
